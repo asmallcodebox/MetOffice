@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<InputData>
+  <Request>
+    <Examples>
+      <Format><![CDATA[http://datapoint.metoffice.gov.uk/public/data/resource?key=APIkey]]></Format>
+      
+      <!-- Here datatype is xml-->
+      
+      <AllStsObsList><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/sitelist?key=]]></AllStsObsList>
+      <AllStsFcsList><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/sitelist?key=]]></AllStsFcsList>
+      
+      <AllStsObsCpbs><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/capabilities?res=hourly&key=]]></AllStsObsCpbs>
+      <!--No 'daily' parameter option for 'AllStsObsCpbs'-->
+      
+      <AllStsFcsCpbs><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/capabilities?res=3hourly&key=]]></AllStsFcsCpbs>
+      
+      <AllStsFcsCpbsDaily><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/capabilities?res=daily&key=]]></AllStsFcsCpbsDaily>
+      
+      <ObsLast24H><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3784?res=hourly&key=]]></ObsLast24H>
+      <!--Parameter 'all' can be used as a 'locationID' in observations queries to obtain data from all locations-->
+      <!--No 'daily' parameter option for 'ObsLast24H'-->
+      
+      <ObsLast24HAtTime><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/xml/3784?res=hourly&time=2017-08-16T10Z&key=]]></ObsLast24HAtTime>
+      <!--Date and hour in 'time' parameter must only be from within available intervals given by 'AllStsObsCpbs'-->
+      
+      <FcsNext5D><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/310069?res=3hourly&key=]]></FcsNext5D>
+      <!--Parameter 'all' can be used as a 'locationID' in forecast queries to obtain data from all locations-->
+      
+      <FcsNext5DAtTime><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3784?res=3hourly&time=2017-08-18T12Z&key=]]></FcsNext5DAtTime>
+      
+      <FcsNext5DDaily><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3784?res=daily&key=]]></FcsNext5DDaily>
+      <!--Daily forecasts are provided without a specified hour (one value for a day and one for a night)-->
+      
+      <FcsNext5DDailyAtTime><![CDATA[http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3784?res=daily&time=2017-08-18T0Z&key=]]></FcsNext5DDailyAtTime>
+      <!--Date and hour in 'time' parameter must only be from within available time steps given by 'AllStsFcsCpbs'-->
+      <!--In <FcsNext5DAtTime> and <FcsNext5DDailyAtTime>, if parameter 'daily' is used with 'time', time should be in a form of yyyy-MM-dd[T00:00:00]Z-->
+    </Examples>
+    <BaseUrl><![CDATA[http://datapoint.metoffice.gov.uk/public/data/]]></BaseUrl>
+    <DataType>xml</DataType>
+    <Resources>
+      <StsObsList>val/wxobs/all/datatype/sitelist</StsObsList>
+      <ObsCpbs>val/wxobs/all/datatype/capabilities</ObsCpbs>
+      <FcsCpbs>val/wxfcs/all/datatype/capabilities</FcsCpbs>
+      <Obs24H>val/wxobs/all/datatype</Obs24H>
+      <Fcs5D>val/wxfcs/all/datatype</Fcs5D>
+    </Resources>
+  </Request>
+  <UploadWaitTime>0.25</UploadWaitTime><!--Applies to <AllStsObsCpbs> -->
+</InputData>
